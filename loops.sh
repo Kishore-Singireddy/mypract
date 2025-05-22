@@ -1,7 +1,4 @@
 #!/bin/bash
-
-#Loops Practice
-
 #Colours
 R='\e[31m'
 G='\e[32m'
@@ -9,10 +6,7 @@ Y='\e[33m'
 B='\e[34m'
 C='\e[0m'
 
-
 USERID=$(id -u)
-
-
 
 #LOGS
 LOG_FOLDER="/var/log/shell_pract"
@@ -28,6 +22,7 @@ then
     echo -e " Installation of $R $2 Failed $C" | tee -a $LOGS
 else 
     echo -e "Installation of $G $2 is Successful $C" | tee -a $LOGS
+    echo -e "$Y Logs can be fount at $LOGS $C "
 fi
 
 }
@@ -40,13 +35,10 @@ else
     echo -e "$G You have root access, proceeding to install the software $C" | tee -a $LOGS
 fi
 
+#SOFTWARE=("nginx" "mysql" "python3")
 
-
-SOFTWARE=("nginx" "mysql" "python3")
-
-for i in ${SOFTWARE[@]}
+for i in $@
 do 
-
 
     dnf list installed $i &>>$LOGS
 
