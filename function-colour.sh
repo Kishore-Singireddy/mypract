@@ -22,7 +22,7 @@ C='\e[0m'
 #LOGS
 LOGS_FOLDER="/var/logs/shell_pract"
 LOG_SCRIPT=$(echo $0 | awk -F "." '{print $1F}') 
-LOGS=$($LOGS_FOLDER/$LOG_SCRIPT.log)
+LOGS="$LOGS_FOLDER/$LOG_SCRIPT.log"
 mkdir -p $LOGS_FOLDER
 #Functions:
 
@@ -54,7 +54,7 @@ dnf list installed mysql &>>$LOGS
 if [ $? -ne 0 ]
 then
     echo -e "$Y MYSQL is not installed, Hence installing it $C"
-    dnf install mysql #$>>$LOGS
+    dnf install mysql -y #$>>$LOGS
     #3 Check if mysql installation is successul 
     VALIDATE $? mysql
 
