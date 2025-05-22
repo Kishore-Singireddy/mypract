@@ -20,9 +20,10 @@ VALIDATE () {
 if [ $1 -ne 0 ]
 then 
     echo -e " Installation of $R $2 Failed $C" | tee -a $LOGS
+    echo -e "$Y Logs can be fount at $LOGS $C "
 else 
     echo -e "Installation of $G $2 is Successful $C" | tee -a $LOGS
-    echo -e "$Y Logs can be fount at $LOGS $C "
+    
 fi
 
 }
