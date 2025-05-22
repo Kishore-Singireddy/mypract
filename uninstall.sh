@@ -13,7 +13,7 @@ C='\e[0m'
 LOG_FOLDER="/var/log/shell_pract"
 LOG_FILE=$(echo $0 | awk -F '{print $1F}')
 LOGS="$LOG_FOLDER/$LOG_FILE.log"
-
+SOFTWARES=$($@)
 echo -e "$O Script Execution started at $(date)$C" | tee -a $LOGS
 
 if [ $USERID -ne 0 ]
@@ -34,7 +34,7 @@ VALIDATE () {
 
 }
 
-for software in {"$@"}
+for software in {$SOFTWARES[@]} 
 do 
     dnf list installed $software &>>$LOGS
     if [ $? -ne 0 ]
