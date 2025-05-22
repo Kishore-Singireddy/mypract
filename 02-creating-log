@@ -8,7 +8,9 @@ echo "$LOG_FOLDER"
 ls -ltr /var/log/test/
 LOG_SCRIPT=$(echo $0 | awk -F "." '{print $1F}')
 
-LOGS="$LOG_FILE/$LOG_SCRIPT.log"
+LOGS="$LOG_FOLDER/$LOG_SCRIPT.log"
+
+echo $LOG_SCRIPT
 
 ls -ltr &>>$LOGS
 ls -12 &>>$LOGS
