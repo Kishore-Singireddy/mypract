@@ -10,7 +10,7 @@ LOG_SCRIPT=$(echo $0 | awk -F "." '{print $1F}')
 
 LOGS=$($LOG_FILE/$LOG_SCRIPT.log)
 
-ls -ltr &>> $LOGS
-ls -12 $>> $LOGS
+ls -ltr &>>$LOGS
+ls -12 $>>$LOGS
 
 echo id -u
