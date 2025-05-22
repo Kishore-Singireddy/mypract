@@ -27,7 +27,7 @@ VALIDATE () {
         echo -e "$2 installation - $R FAILED $C"
     else
         echo -e "$2 installation is $G SUCCESSFUL $C" 
-    if
+    fi
 
 
 }
