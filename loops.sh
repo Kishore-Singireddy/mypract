@@ -2,7 +2,7 @@
 
 #Loops Practice
 
-echo "Script execution started at $(date)"
+echo -e "$R Script execution started at $(date) $C"
 
 
 USERID=$(id -u)
