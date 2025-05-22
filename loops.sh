@@ -31,18 +31,18 @@ do
 
     if [ $1 -ne 0 ]
     then 
-        echo " Installation of $R $2 Failed $C" | tee -a $LOGS
+        echo -e " Installation of $R $2 Failed $C" | tee -a $LOGS
     else 
-        echo "Installation of $G $2 is Successful $C" | tee -a $LOGS
+        echo -e "Installation of $G $2 is Successful $C" | tee -a $LOGS
     fi
 
     }
 
     if [ $USERID -ne 0 ]
     then 
-        echo "$R You don not have root access, can not proceed to install $C " | tee -a $LOGS
+        echo -e "$R You don not have root access, can not proceed to install $C " | tee -a $LOGS
     else 
-        echo "$G You have root access, proceeding to install the software $C" | tee -a $LOGS
+        echo -e "$G You have root access, proceeding to install the software $C" | tee -a $LOGS
     fi
 
     dnf list installed $i &>>$LOGS
@@ -50,11 +50,11 @@ do
     if [ $? -ne 0 ]
 
     then 
-        echo " $Y Installing $i $C "
+        echo -e " $Y Installing $i $C "
         dnf install $i -y  &>>$LOGS
         VALIDATE $? $i 
     else 
-        echo " $G $i is already installed No action required" | tee -a $LOGS 
+        echo -e " $G $i is already installed No action required" | tee -a $LOGS 
     fi
 
 done
