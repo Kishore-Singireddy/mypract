@@ -28,13 +28,14 @@ VALIDATE () {
     if [ $1 -ne 0 ]
     then 
         echo -e " $2 Unistallation is $R Failed $C " | tee -a $LOGS
+        echo -e " logs can be found at $LOGS "
     else
         echo -e  " $2 Unistallation is $G Successfully $C " | tee -a $LOGS
     fi
 
 }
 
-for software in $@
+for software in ${$@[@]}
 do 
     dnf list installed $software &>>$LOGS
     if [ $? -ne 0 ]
