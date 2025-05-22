@@ -9,8 +9,6 @@ Y='\e[33m'
 B='\e[34m'
 C='\e[0m'
 
-echo -e "$R Script execution started at $(date) $C" | tee -a $LOGS
-
 
 USERID=$(id -u)
 
@@ -22,7 +20,7 @@ LOG_SCRIPT=$(echo $0 | awk -F "." '{print $1F}')
 LOGS="$LOG_FOLDER/$LOG_SCRIPT.log"
 
 mkdir -p $LOG_FOLDER
-
+echo -e "$R Script execution started at $(date) $C" | tee -a $LOGS
 VALIDATE () {
 
 if [ $1 -ne 0 ]
