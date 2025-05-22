@@ -21,7 +21,7 @@ C='\e[0m'
 
 #LOGS
 LOGS_FOLDER="/var/logs/shell_pract/"
-LOG_SCRIPT=$(echo $0 | awk -F '{print $1F}') 
+LOG_SCRIPT=$(echo $0 | awk -F "." '{print $1F}') 
 LOGS=$($LOGS_FOLDER/$LOG_SCRIPT.log)
 mkdir -p $LOGS_FOLDER
 #Functions:
@@ -33,7 +33,6 @@ VALIDATE () {
     else
         echo -e "$2 installation is $G SUCCESSFUL $C" 
     fi
-
 
 }
 
