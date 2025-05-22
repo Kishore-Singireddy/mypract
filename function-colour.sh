@@ -62,3 +62,28 @@ else
     echo -e "$G MYSQL is already installed... Hence skipping this step $C"
 fi
     
+dnf list installed nginx &>>$LOGS
+
+if [ $? -ne 0 ]
+then
+    echo -e "$Y NGINX is not installed, Hence installing it $C"
+    dnf install nginx -y $>>$LOGS
+    #3 Check if nginx installation is successul 
+    VALIDATE $? nginx
+
+else 
+    echo -e "$G NGINX is already installed... Hence skipping this step $C"
+fi
+
+dnf list installed python3 &>>$LOGS
+
+if [ $? -ne 0 ]
+then
+    echo -e "$Y PYTHON3 is not installed, Hence installing it $C"
+    dnf install python3 -y $>>$LOGS
+    #3 Check if pyton3 installation is successul 
+    VALIDATE $? python3
+
+else 
+    echo -e "$G python3 is already installed... Hence skipping this step $C"
+fi
