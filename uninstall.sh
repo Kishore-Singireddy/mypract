@@ -11,7 +11,7 @@ O='\e[35m'
 C='\e[0m'
 
 LOG_FOLDER="/var/log/shell_pract"
-LOG_FILE=$(echo $0 | awk -F '{print $1F}')
+LOG_FILE=$(echo $0 | awk -F "." '{print $1F}')
 LOGS="$LOG_FOLDER/$LOG_FILE.log"
 #SOFTWARES=$($@)
 echo -e "$O Script Execution started at $(date)$C" | tee -a $LOGS
