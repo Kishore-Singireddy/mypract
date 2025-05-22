@@ -2,7 +2,7 @@
 
 #Loops Practice
 
-echo "Script execution started at $(date)
+echo "Script execution started at $(date)"
 
 
 
@@ -50,13 +50,11 @@ do
     if [ $? -ne 0 ]
 
     then 
-        echo " $Y Installing $i $C"
+        echo " $Y Installing $i $C "
         dnf install $i -y  &>>$LOGS
         VALIDATE $? $i 
     else 
-        echo " $G $i is already installed, No action required " | tee -a $LOGS
+        echo " $G $i is already installed No action required" | tee -a $LOGS 
     fi
 
 done
-
-
