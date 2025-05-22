@@ -54,7 +54,7 @@ dnf list installed mysql &>>$LOGS
 if [ $? -ne 0 ]
 then
     echo -e "$Y MYSQL is not installed, Hence installing it $C"
-    dnf install mysql -y #$>>$LOGS
+    dnf install mysql -y $>>$LOGS
     #3 Check if mysql installation is successul 
     VALIDATE $? mysql
 
