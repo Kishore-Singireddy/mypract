@@ -49,12 +49,12 @@ fi
 
 #2 Check if software is already installed and install it
 
-dnf list installed mysql &>> $LOGS
+dnf list installed mysql &>>$LOGS
 
 if [ $? -ne 0 ]
 then
     echo -e "$Y MYSQL is not installed, Hence installing it $C"
-    dnf install mysql $>> $LOGS
+    dnf install mysql $>>$LOGS
     #3 Check if mysql installation is successul 
     VALIDATE $? mysql
 
