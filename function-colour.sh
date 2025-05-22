@@ -54,9 +54,9 @@ dnf list installed mysql &>>$LOGS
 if [ $? -ne 0 ]
 then
     echo -e "$Y MYSQL is not installed, Hence installing it $C"
-    dnf install mysql -y $>>$LOGS
+    dnf install mysql -y &>>$LOGS
     #3 Check if mysql installation is successul 
-    VALIDATE $? mysql
+    VALIDATE $? "mysql"
 
 else 
     echo -e "$G MYSQL is already installed... Hence skipping this step $C"
@@ -67,9 +67,9 @@ dnf list installed nginx &>>$LOGS
 if [ $? -ne 0 ]
 then
     echo -e "$Y NGINX is not installed, Hence installing it $C"
-    dnf install nginx -y $>>$LOGS
+    dnf install nginx -y &>>$LOGS
     #3 Check if nginx installation is successul 
-    VALIDATE $? nginx
+    VALIDATE $? "nginx"
 
 else 
     echo -e "$G NGINX is already installed... Hence skipping this step $C"
@@ -80,9 +80,9 @@ dnf list installed python3 &>>$LOGS
 if [ $? -ne 0 ]
 then
     echo -e "$Y PYTHON3 is not installed, Hence installing it $C"
-    dnf install python3 -y $>>$LOGS
+    dnf install python3 -y &>>$LOGS
     #3 Check if pyton3 installation is successul 
-    VALIDATE $? python3
+    VALIDATE $? "python3"
 
 else 
     echo -e "$G python3 is already installed... Hence skipping this step $C"
