@@ -20,7 +20,7 @@ B='\e[34m'
 C='\e[0m'
 
 #LOGS
-LOGS_FOLDER="/var/logs/shell_pract/"
+LOGS_FOLDER="/var/logs/shell_pract"
 LOG_SCRIPT=$(echo $0 | awk -F "." '{print $1F}') 
 LOGS=$($LOGS_FOLDER/$LOG_SCRIPT.log)
 mkdir -p $LOGS_FOLDER
