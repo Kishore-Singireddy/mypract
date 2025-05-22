@@ -49,9 +49,9 @@ do
     then 
         echo " $Y Installing $i $C"
         dnf install $i -y  &>>$LOGS
-        VALIDATE $1 $i 
+        VALIDATE $? $i 
     else 
-        echo " $G $i is already installed, No action required" | tee -a $LOGS
+        echo " $G $i is already installed, No action required " | tee -a $LOGS
     fi
 
 done
