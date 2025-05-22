@@ -34,7 +34,7 @@ VALIDATE () {
 
 }
 
-for software in {$@} 
+for software in $@
 do 
     dnf list installed $software &>>$LOGS
     if [ $? -ne 0 ]
