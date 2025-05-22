@@ -2,17 +2,19 @@
 
 #Loops Practice
 
-echo -e "$R Script execution started at $(date) $C"
-
-
-USERID=$(id -u)
-
 #Colours
 R='\e[31m'
 G='\e[32m'
 Y='\e[33m'
 B='\e[34m'
 C='\e[0m'
+
+echo -e "$R Script execution started at $(date) $C" | tee -a $LOGS
+
+
+USERID=$(id -u)
+
+
 
 #LOGS
 LOG_FOLDER="/var/log/shell_pract"
