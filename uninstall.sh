@@ -21,7 +21,7 @@ then
     echo -e "$R You don't have access to unistall the software $C " | tee -a $LOGS
     exit 1
 else 
-    echo -e "$Y Proceeding to unistall the software $C" | tee -a $LOGS
+    echo -e "$Y Proceeding to unistall the software $@ $C" | tee -a $LOGS
 fi
 
 VALIDATE () {
