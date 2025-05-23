@@ -37,7 +37,7 @@ VALIDATE () {
 }
 
 #1 check if the current user has root access
-if [ USERID -ne 0 ]
+if [ $USERID -ne 0 ]
 then
     echo -e " $R You don't have root access, hence can not install software.... exiting... $N "  | tee -a $LOGS
     exit 1
