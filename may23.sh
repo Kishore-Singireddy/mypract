@@ -26,6 +26,8 @@ echo -e "$Y Script execution started at $(date) $N " | tee -a $LOGS
 
 PACKAGE=$#
 
+echo -e "Softwares requested for installation $Y $@ $N"
+
 USAGE () {
 
     if [ $PACKAGE -le 0 ]
@@ -62,7 +64,7 @@ fi
 
 #2 Check if the software is installed already
 
-for package in $#
+for package in $@
 do 
     dnf list installed $package &>> $LOGS
     if [ $? -ne 0 ]
