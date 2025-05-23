@@ -24,6 +24,18 @@ mkdir -p $LOG_FOLDER
 
 echo -e "$Y Script execution started at $(date) $N " | tee -a $LOGS 
 
+PACKAGE=$#
+
+USAGE () {
+
+    if [ $PACKAGE -le 0 ]
+    then 
+        echo -e " $R Please enter the sofware followed by the script name, as shown below $N exiting the installation " | tee -a $LOGS
+        echo -e " $R Usagae is $0 software1 software2 software3 $N "
+        exit 1
+    fi
+}
+
 VALIDATE () {
     if [ $1 -ne 0 ]
     then 
@@ -37,6 +49,7 @@ VALIDATE () {
 }
 
 #1 check if the current user has root access
+USAGE
 if [ $USERID -ne 0 ]
 then
     echo -e " $R You don't have root access, hence can not install software.... exiting... $N "  | tee -a $LOGS
@@ -46,12 +59,6 @@ else
 
 fi
 
-if [ $# -le 0 ]
-then 
-    echo -e " $R Please enter the sofware followed by the script name, as shown below $N"
-    echo -e " $R Usagae is $0 software1 software2 software3 $N "
-    exit 1
-fi
 
 #2 Check if the software is installed already
 
