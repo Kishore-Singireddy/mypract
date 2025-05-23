@@ -44,7 +44,7 @@ VALIDATE () {
         echo -e " $2 Installation $R Failed $N " | tee -a $LOGS
         echo -e " check the logs $R $LOGS $N "
     else 
-        echo -e " $2 Installation $G Successful $N " tee -a $LOGS
+        echo -e " $2 Installation $G Successful $N " | tee -a $LOGS
     fi
 
 
