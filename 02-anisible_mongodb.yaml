@@ -1,0 +1,5 @@
+- name: ansible to install mongodb
+  hosts: mongodb
+  tasks: 
+  - name: mongodb install
+    ansible.builtin.plugin: 
