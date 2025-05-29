@@ -2,4 +2,4 @@
   hosts: mongodb
   tasks: 
   - name: mongodb install
-    ansible.builtin.plugin: 
+    ansible.builtin.plugin: ping
