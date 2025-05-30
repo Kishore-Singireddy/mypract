@@ -2,4 +2,6 @@
   hosts: mongodb
   tasks: 
   - name: ping the server
-    ansible.builtin.ping:
+    ansible.builtin.package:
+    name: mongodb
+    state: present

@@ -1,5 +1,10 @@
 - name: ping the server
   hosts: mongodb
   tasks:
-    - name: ping the server
-      ansible.builtin.ping:
+  - name: ping the server
+    ansible.builtin.ping:
+
+  - name: install mongodb
+    ansible.builtin.pagakage:
+    name: mongodb
+    state: installed
