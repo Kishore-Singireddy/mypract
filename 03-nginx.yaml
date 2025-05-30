@@ -1,6 +1,6 @@
 - name: install nginx
   hosts: mongodb
-  state: become
+  become: yes
   tasks:
     - name: nginx installation
       ansible.builtin.dnf:
