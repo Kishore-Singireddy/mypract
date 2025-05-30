@@ -1,0 +1,7 @@
+- name: hello world
+  hosts: local
+  commection: local
+  tasks:
+    - name: print hello world
+      ansible.builtin.debug:
+        msg: "Printing hello World, Thanks for the indentations"
