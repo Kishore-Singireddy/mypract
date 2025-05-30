@@ -1,0 +1,13 @@
+- name: install default nginx
+  hosts: mongodb
+  become: yes
+  tasks: 
+    - name: nginx install
+      ansible.builtin.package:
+        name: nginx
+        state: installed
+
+    - name: nginx install
+      ansible.builtin.service:
+        name: nginx
+        state: started
