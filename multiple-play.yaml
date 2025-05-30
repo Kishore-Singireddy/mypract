@@ -11,7 +11,8 @@
 
 
 - name: multi play
-  hosts: mongodb
+  hosts: local
+  connection: local
   tasks:
     - name: play2
       ansible.builtin.debug:
