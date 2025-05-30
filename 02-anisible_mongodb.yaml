@@ -1,5 +1,6 @@
 - name: ansible to install mongodb
   hosts: mongodb
+  become: yes
   tasks: 
   - name: ping the server
     ansible.builtin.package:
