@@ -1,11 +1,12 @@
 - name: install nginx
   hosts: mongodb
+  state: become
   tasks:
     - name: nginx installation
       ansible.builtin.dnf:
         name: nginx
         state: installed
-        
+
     - name: nginx installation
       ansible.builtin.service:
         name: nginx
