@@ -1,0 +1,10 @@
+- name: multi play
+  hosts: mongodb
+  tasks:
+    - name: play1
+      ansible.builtin.debug:
+        msg: "Hello from play 1, task 1"
+
+    - name: play2
+      ansible.builtin.debug:
+        msg: "Hello from play 2, task 2"
