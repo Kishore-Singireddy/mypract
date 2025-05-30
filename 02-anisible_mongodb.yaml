@@ -2,7 +2,7 @@
   hosts: mongodb
   become: yes
   tasks: 
-  - name: ping the server
+  - name: install mongodb
     ansible.builtin.package:
-    name: mongodb
-    state: present
+      name: mongodb
+      state: installed
