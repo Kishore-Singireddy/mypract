@@ -1,12 +1,12 @@
-- mame: configuring catalogue application
+- name: configuring catalogue application
   become: yes
   hosts: catalogue
   tasks: 
   - name: disabling default nodejs
-    ansible.builtin.command: dnf disable nodejs
+    ansible.builtin.command: dnf module disable nodejs
 
   - name: enable nodejs 1.24
-    ansible.builtin.command: dnf enable nodejs:20
+    ansible.builtin.command: dnf module enable nodejs:20
 
   - name: nodejs:20 installation
     ansible.builtin.dnf:

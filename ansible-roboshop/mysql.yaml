@@ -1,5 +1,6 @@
 - name: Intalling MySql via ansible
   hosts: mysql
+  become: yes
   tasks:
     - name: installing mysql db
       ansible.builtin.dnf:
