@@ -29,13 +29,25 @@
       src: /tmp/shipping.zip
       dest: /app
 
-  - name: Download Maven dependencies and build Roboshop application
-    ansible.builtin.command: "{{ item }}"
-    loop:
-    - mvn clean package
-    - mv target/shipping-1.0.jar shipping.jar 
+  - name: Install Maven dependencies
+    ansible.builtin.command: mvn clean package
     args:
-      /app
+      chdir: /app
+
+  - name: Jar file rename
+    ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar 
+    args:
+      chdir: /app
+
+
+
+  # - name: Download Maven dependencies and build Roboshop application
+  #   ansible.builtin.command: "{{ item }}"
+  #     loop:
+  #     - mvn clean package
+  #     - mv target/shipping-1.0.jar shipping.jar 
+  #   args:
+  #     chdir: /app
 
   - name: Create system user
     ansible.builtin.copy:
