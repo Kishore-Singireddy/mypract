@@ -1,0 +1,26 @@
+- name: Mongodb Server installation
+  become: yes
+  hosts: mongodb
+  tasks: 
+  - name: Mongodb Server - installation
+    ansible.builtin.dnf:
+      name: mongodb-org
+      state: present
+  
+  - name: Mongodb service restart
+    ansible.builtin.service:
+      name: mongod
+      state: restarted
+      enabled: yes
+
+  - name: Remote access - enable
+    ansible.builtin.replace:
+      path: /etc/mongod.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+
+  - name: Mongodb Service restart
+    ansible.builtin.service:
+      name: mongod
+      state: restarted
+    

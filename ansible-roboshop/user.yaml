@@ -1,0 +1,57 @@
+- mame: configuring user application
+  become: yes
+  hosts: user
+  tasks: 
+  - name: disabling default nodejs
+    ansible.builtin.command: dnf disable nodejs
+
+  - name: enable nodejs 1.24
+    ansible.builtin.command: dnf enable nodejs:20
+
+  - name: nodejs:20 installation
+    ansible.builtin.dnf:
+      name: nodejs
+      state: present
+
+  - name: creating system user - roboshop
+    ansible.builtin.user:
+      name: roboshop
+      home: /app
+      shell: /sbin/nologin
+      system: true
+  
+  - name: copy the applcation code
+    ansible.builtin.get_url:
+     url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip
+     dest: /tmp/user.zip
+
+  - name: unzip the application code
+    ansible.builtin.unarchive:
+      src: /tmp/user.zip
+      dest: /app
+      remote_src: yes
+  
+  - name: install nodejs dependencies
+    community.general.npm: 
+      name: npm
+      path: /app
+  
+  - name: creating user.service 
+    ansible.builtin.copy:
+      src: user.service
+      dest: /etc/systemd/system/user.service
+  
+  - name: Deamon reload
+    ansible.builtin.systemd_service:
+      dameon_reload: yes
+
+  - name: start and enable user
+    ansible.builtin.service:
+      name: user
+      state: restarted
+      enabled: yes
+      
+
+
+  
+      
