@@ -30,7 +30,7 @@
       dest: /app
 
   - name: Download Maven dependencies and build Roboshop application
-    ansible.builitin.command: 
+    ansible.builtin.command: 
       mvn clean package
       mv target/shipping-1.0.jar shipping.jar 
     args:
