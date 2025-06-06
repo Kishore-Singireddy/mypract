@@ -3,10 +3,10 @@ AMI_ID="ami-09c813fb71547fc4f"
 SG_ID="sg-06e1b399be05bca65"
 ZONE_ID="Z02669663M5NZUABP37AR"
 DOMAIN_NAME="singireddy.shop"
-#INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
+INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "frontend")
 
-#for instance in ${INSTANCES[@]}
-for instance in $@
+for instance in ${INSTANCES[@]}
+#for instance in $@
 
 do
 
