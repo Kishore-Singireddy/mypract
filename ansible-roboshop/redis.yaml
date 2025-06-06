@@ -2,13 +2,13 @@
   become: yes
   hosts: redis
   tasks: 
-  - mame: Redis - defaul redis disabling
-    ansible.builtin.command: dnf module disable redis
+  - name: Redis - defaul redis disabling
+    ansible.builtin.command: dnf disable redis
 
-  - mame: Redis - eanble version 7
-    ansible.builtin.command: dnf module enable redis:7
+  - name: Redis - eanble version 7
+    ansible.builtin.command: dnf enable redis:7
 
-  - mame: Redis - Installing
+  - name: Redis - Installing
     ansible.builtin.dnf:
       name: redis
       state: present
