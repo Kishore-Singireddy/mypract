@@ -1,4 +1,4 @@
-- mame: configuring user application
+- name: configuring user application
   become: yes
   hosts: user
   tasks: 
