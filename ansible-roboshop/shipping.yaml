@@ -31,8 +31,9 @@
 
   - name: Download Maven dependencies and build Roboshop application
     ansible.builtin.command: 
-      mvn clean package
-      mv target/shipping-1.0.jar shipping.jar 
+    loop:
+    - mvn clean package
+    - mv target/shipping-1.0.jar shipping.jar 
     args:
       /app
 
@@ -57,7 +58,7 @@
   - name: load data
     ansible.builtin.shell: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < "{{ item }}"
       
-      loop
-      - /app/db/schema.sql
-      - /app/db/app-user.sql
-      - /app/db/master-data.sql
+    loop:
+    - /app/db/schema.sql
+    - /app/db/app-user.sql
+    - /app/db/master-data.sql
