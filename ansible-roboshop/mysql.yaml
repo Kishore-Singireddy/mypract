@@ -15,4 +15,4 @@
 
 
     - name: change root password
-      ansible.builtin.dnf: mysql_secure_installation --set-root-pass RoboShop@1
+      ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
