@@ -8,7 +8,7 @@
       state: present
 
   - name: System User creation
-    ansible.builtin.dnf:
+    ansible.builtin.user:
       name: roboshop
       home: /app
       shell: /sbin/nologin
