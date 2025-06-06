@@ -52,7 +52,7 @@
       enabled: yes
 
   - name: Instaling mysql
-    ansible.builtin.command: dnf install mysql
+    ansible.builtin.command: dnf install mysql -y
 
   - name: load data
     ansible.builtin.shell: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < "{{ item }}"

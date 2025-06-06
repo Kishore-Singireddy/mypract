@@ -3,10 +3,10 @@
   hosts: frontend
   tasks: 
   - name: Default Nginx - Disabling
-    ansible.builtin.command: dnf module disable nginx
+    ansible.builtin.command: dnf module disable nginx -y
 
   - name: Nginx 1.24 - enabling
-    ansible.builtin.command: dnf module enable nginx:1.24
+    ansible.builtin.command: dnf module enable nginx:1.24 -y
 
   - name: Nginx - Installing  
     ansible.builtin.dnf:

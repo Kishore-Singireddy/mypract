@@ -3,10 +3,10 @@
   hosts: user
   tasks: 
   - name: disabling default nodejs
-    ansible.builtin.command: dnf module disable nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
 
   - name: enable nodejs 1.24
-    ansible.builtin.command: dnf module enable nodejs:20
+    ansible.builtin.command: dnf module enable nodejs:20 -y
 
   - name: nodejs:20 installation
     ansible.builtin.dnf:
