@@ -94,7 +94,7 @@
 
   - name: Restart Shipping service
     tags:
-    - target
+    - import
     ansible.builtin.service:
       name: shipping
       state: start
