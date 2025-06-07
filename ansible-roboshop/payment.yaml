@@ -6,10 +6,10 @@
       ansible.builtin.dnf:
         name: "{{ item }}"
         state: present
-        loop:
-        - python3
-        - gcc
-        - python3-devel
+      loop:
+      - python3
+      - gcc
+      - python3-devel
     
     - name: Creating system user
       ansible.builtin.user:
