@@ -4,8 +4,12 @@
   tasks:
     - name: install python
       ansible.builtin.dnf:
-        name: python3 gcc python3-devel
+        name: "{{ item }}"
         state: present
+        loop:
+        - python3
+        - gcc
+        - python3-devel
     
     - name: Creating system user
       ansible.builtin.user:
@@ -32,8 +36,10 @@
 
     - name: downlaod dependencies
       ansible.builtin.pip:
-        executable: pip3.3
-        requirements: /app/requirements.txt
+        executable: pip3.9
+        requirements: requirements.txt
+      args:
+          chdir: /app
 
     - name: payment.service creation
       ansible.builtin.copy:
@@ -48,4 +54,4 @@
       ansible.builtin.service:
         name: payment
         state: restarted
-        enabled: true 
+        enabled: true
