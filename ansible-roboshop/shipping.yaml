@@ -10,6 +10,15 @@
     - maven
     - mysql
 
+  - name: Installing python dependencies for connecting to mysql
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      state: present
+      executable: pip3
+      loop:
+      - pymsql
+      - cryptography
+
   - name: System User creation
     ansible.builtin.user:
       name: roboshop
